@@ -1,0 +1,34 @@
+RewriteEngine On
+ErrorDocument 404 /404.php
+
+RewriteRule ^login index.php?page=login [NC,L]
+RewriteRule ^home index.php?page=home [NC,L]
+RewriteRule ^profile index.php?page=profile [NC,L]
+RewriteRule ^data_karyawan index.php?page=data_karyawan [NC,L]
+RewriteRule ^gaji_karyawan index.php?page=gaji_karyawan [NC,L]
+RewriteRule ^laporan_data_karyawan index.php?page=laporan_data_karyawan [NC,L]
+RewriteRule ^laporan_gaji_karyawan index.php?page=laporan_gaji_karyawan [NC,L]
+RewriteRule ^konfigurasi_app index.php?page=konfigurasi_app [NC,L]
+RewriteRule ^ubah_password index.php?page=ubah_password [NC,L]
+RewriteRule ^daftar index.php?page=daftar [NC,L]
+RewriteRule ^lupa_password index.php?page=lupa_password [NC,L]
+RewriteRule ^logout index.php?page=logout [NC,L]
+
+
+#http://localhost/app/perpustakaan/?page=berita&ke=2
+
+
+
+RewriteRule ^Vdaftar&token=([0-9a-zA-Z_-]+) index.php?page=daftar&verEmail=$1 [NC,L]
+RewriteRule ^Vpass_baru&token=([0-9a-zA-Z_-]+) ?page=pass_baru&token=$1 [NC,L]
+
+
+
+
+
+
+
+
+
+ 
+

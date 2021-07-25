@@ -1,0 +1,16 @@
+.qrcode {
+    font-weight: bold;
+}
+
+
+.qrcode .name {
+    font-style: oblique;
+    color: #00008;
+
+}
+
+.qrcode .scanImg {
+    font-family: cursive;
+    color: red;
+
+}
