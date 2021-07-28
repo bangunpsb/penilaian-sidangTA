@@ -184,25 +184,23 @@ class users extends db
         }
     }
 
-    public function daftarUser($imgDaftar, $lokasi_imgDaftar, $namaDepan_daftar, $namaBelakang_daftar, $email_daftar, $nohp_daftar, $password_daftar, $token, $level_daftar, $status_daftar)
+    public function daftarUser($imgDaftar, $lokasi_imgDaftar, $nim_daftar, $namaDepan_daftar, $namaBelakang_daftar, $email_daftar, $nohp_daftar, $password_daftar, $token, $level_daftar, $status_daftar)
     {
-        $querycekpengguna = "SELECT count(*) FROM users where email=?";
+        $querycekpengguna = "SELECT count(*) FROM users where email=? OR nim=?";
         $stmtcekpengguna = $this->db->prepare($querycekpengguna);
-        $stmtcekpengguna->execute([$email_daftar]);
+        $stmtcekpengguna->execute([$email_daftar, $nim_daftar]);
         $cekpengguna = $stmtcekpengguna->fetchColumn();
-
 
         if ($cekpengguna > 0) {
             echo 1;
         } else {
-            $query = 'INSERT INTO users (nama_depan,nama_belakang,email,no_hp,password,level,status,token,img_users) VALUES (?,?,?,?,?,?,?,?,?)';
+            $query = 'INSERT INTO users (nim,nama_depan,nama_belakang,email,no_hp,password,level,status,token,img_users) VALUES (?,?,?,?,?,?,?,?,?,?)';
             $stmt = $this->db->prepare($query);
-            $result = $stmt->execute([$namaDepan_daftar, $namaBelakang_daftar, $email_daftar, $nohp_daftar, $password_daftar, $level_daftar, $status_daftar, $token, $imgDaftar]);
+            $result = $stmt->execute([$nim_daftar, $namaDepan_daftar, $namaBelakang_daftar, $email_daftar, $nohp_daftar, $password_daftar, $level_daftar, $status_daftar, $token, $imgDaftar]);
             $this->verAccount($email_daftar, $token);
             $locationfolder = "../assets/imgUsers/$imgDaftar";
             $upload = move_uploaded_file($lokasi_imgDaftar, $locationfolder);
             echo 0;
-            // exit();
         }
     }
 
@@ -210,9 +208,6 @@ class users extends db
 
     public function verAccount($email_daftar, $token)
     {
-        // require 'phpmailer/src/Exception.php';
-        // require 'phpmailer/src/PHPMailer.php';
-        // require 'phpmailer/src/SMTP.php';
 
         $mail = new PHPMailer(true);
 
@@ -261,5 +256,13 @@ class users extends db
         $stmt = $this->db->prepare($query);
         $stmt->execute([2, $getToken]);
         $_SESSION["msgVer"] = "Akun anda sudah diverifikasi, sekarang anda bisa login";
+    }
+
+    public function updateUser($update_nim, $update_namaDepan, $update_namaBelakang, $update_noHp)
+    {
+        $query = "UPDATE users SET nama_depan=?,nama_belakang=?,no_hp=? WHERE nim=?";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute([$update_namaDepan, $update_namaBelakang, $update_noHp, $update_nim]);
+        echo 1;
     }
 }

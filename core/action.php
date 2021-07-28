@@ -32,13 +32,14 @@ if (isset($_POST['resetemail'])) {
     $msg = $getfromUsers->lupaPassword($resetemail, $token);
 }
 
-
+// daftar
 if (isset($_POST['namaDepan_daftar'])) {
     require '../assets/phpmailer/src/Exception.php';
     require '../assets/phpmailer/src/PHPMailer.php';
     require '../assets/phpmailer/src/SMTP.php';
     $imgDaftar = $_FILES['imgDaftar']['name'];
     $lokasi_imgDaftar = $_FILES['imgDaftar']['tmp_name'];
+    $nim_daftar = $_POST['nim_daftar'];
     $namaDepan_daftar = $_POST['namaDepan_daftar'];
     $namaBelakang_daftar = $_POST['namaBelakang_daftar'];
     $email_daftar = $_POST['email_daftar'];
@@ -50,10 +51,17 @@ if (isset($_POST['namaDepan_daftar'])) {
     $token = $date;
     $level_daftar = 'user';
     $status_daftar = 0;
-    $set = $getfromUsers->daftarUser($imgDaftar, $lokasi_imgDaftar, $namaDepan_daftar, $namaBelakang_daftar, $email_daftar, $nohp_daftar, $password_daftar, $token, $level_daftar, $status_daftar);
+    $set = $getfromUsers->daftarUser($imgDaftar, $lokasi_imgDaftar, $nim_daftar, $namaDepan_daftar, $namaBelakang_daftar, $email_daftar, $nohp_daftar, $password_daftar, $token, $level_daftar, $status_daftar);
 }
 
-
+// update profile
+if (isset($_POST['update_nim'])) {
+    $update_nim = $_POST['update_nim'];
+    $update_namaDepan = $_POST['update_namaDepan'];
+    $update_namaBelakang = $_POST['update_namaBelakang'];
+    $update_noHp = $_POST['update_noHp'];
+    $set = $getfromUsers->updateUser($update_nim, $update_namaDepan, $update_namaBelakang, $update_noHp);
+}
 
 
 

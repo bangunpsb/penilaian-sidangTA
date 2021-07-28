@@ -4,16 +4,19 @@ Note :
         status 2 = boleh melakukan login
 
 
-Admin
+untuk diselesaikan
 -untuk upload skripsi untuk penilain mulai dari user ke admin baru ke dosen (ini cari rancangan nya seperti apa)
--batasi menu utk akses yang login admin,user,dosen
 -profile (nanti disitu bisa update profil)
 -password baru dari link reset ketika pertama kali bisa ketika kedua kali tidak bisa
--menu admin,user,dosen
+-tambahi table jadwal sidang dan pendaftaran (sudah)
+-utk pendaftaran dari file daftar tambahi field nim nya (sudah)
+-untuk session nama ketika login ganti jadi select dari db agar ketika dia update profile maka otomatis nama nya juga terganti (sudah)
 
 
- 
-cek :
--jika status 1 atau 0 dan level admin atau user maka ga bisa masuk ke link home
--perbaiki untuk yg login hanya menyimpan session id lalu untuk membuat nama nya diambil dari db agar
-ketika ganti profile (nama/password) maka dia langsung ngubah password dan nama nya.
+status_pendaftaran fungsinya untuk mengetahui sejauh mana pendaftaran itu
+if status_pendaftaran = 1 maka mahasiswa yang liat
+        else itu 
+        jika status_pendaftaran = 2 maka admin yang liat
+        else itu
+        jika status_pendaftaran = 3 maka dosen yang liat
+

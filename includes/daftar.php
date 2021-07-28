@@ -40,7 +40,9 @@ if (isset($_GET['verEmail'])) {
                                 <label for="img">Profile gambar</label>
                                 <input type="file" id="imgDaftar" class="form-control form-control-lg" onchange="viewImg()" accept="image/*" required>
                             </div>
-
+                            <div class="form-group">
+                                <input type="text" class="form-control form-control-user" id="nim_daftar" placeholder="Nim" maxlength="12">
+                            </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input type="text" class="form-control form-control-user" id="namaDepan_daftar" placeholder="Nama Depan">

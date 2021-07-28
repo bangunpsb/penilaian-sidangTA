@@ -200,6 +200,7 @@ if (akses_levelLogin == "user") {
 
     // daftar
     $('.daftar').click(function () {
+        let nim_daftar=$('#nim_daftar').val();                                
         let namaDepan_daftar=$('#namaDepan_daftar').val();                                
         let namaBelakang_daftar=$('#namaBelakang_daftar').val();                                
         let email_daftar=$('#email_daftar').val();                                
@@ -222,6 +223,7 @@ if (akses_levelLogin == "user") {
                 });                                                                       
         }else{
             fd.append("imgDaftar", files);
+            fd.append("nim_daftar", nim_daftar);            
             fd.append("namaDepan_daftar", namaDepan_daftar);            
             fd.append("namaBelakang_daftar", namaBelakang_daftar);
             fd.append("email_daftar", email_daftar);                                
@@ -238,22 +240,25 @@ if (akses_levelLogin == "user") {
                 success: function (data) {                                                           
                     if(data == 1){
                         swal({                        
-                            text: "Pendaftaran gagal dilakukan email sudah digunakan, silahkan coba lagi.",
+                            text: "Pendaftaran gagal dilakukan email/nim sudah digunakan, silahkan coba lagi.",
                             icon: "error",
                         });               
-                        return false;                                                           
+                        // return false;                                                           
                     }else{
                         swal({                        
                             text: "Berhasil mendaftar, harap verifikasi email untuk bisa login",
                             icon: "success",
                         });          
-                         namaDepan_daftar.val('');
-         namaBelakang_daftar.val('');                                
-         email_daftar.val('');                          
-         nohp_daftar.val('');                                
-         password_daftar.val('');                                
-         passwordUlangi_daftar.val('');                                        
-                        return false;                                                                
+                        $('#imgDaftar').val("");                                
+                        $('#nim_daftar').val("");                                
+                        $('#namaDepan_daftar').val("");
+                        $('#namaBelakang_daftar').val("");                                      
+                        $('#email_daftar').val("");
+                        $('#nohp_daftar').val("");
+                        $('#password_daftar').val("");
+                        $('#passwordUlangi_daftar').val("");                                              
+                        $('#nim_daftar').focus();   
+                        // return false;                                                                
                     }
             }
             });        
@@ -262,6 +267,44 @@ if (akses_levelLogin == "user") {
 
     });
 
+
+// updateprofile dari profile.php
+$('.updateProfile').click(function () {
+    let update_nim=$('#update_nim').val();                                
+    let update_namaDepan=$('#update_namaDepan').val();                                
+    let update_namaBelakang=$('#update_namaBelakang').val();                                
+    let update_noHp=$('#update_noHp').val();                                        
+    
+        fd.append("update_nim", update_nim);
+        fd.append("update_namaDepan", update_namaDepan);            
+        fd.append("update_namaBelakang", update_namaBelakang);                    
+        fd.append("update_noHp", update_noHp);                                
+                
+        $.ajax({
+            type: 'post',
+            url: 'core/init.php',
+            data: fd,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {                                                           
+                if(data == 1){
+                    swal({                        
+                        text: "Berhasil update data",
+                        icon: "success",
+                    });               
+                    // return false;                                                           
+                }else{
+                    swal({                        
+                        text: "Gagal update data",
+                        icon: "error",
+                    });                              
+                    // return false;                                                                
+                }        
+        });        
+                            
+
+});
 
 
 
