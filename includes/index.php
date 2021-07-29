@@ -6,8 +6,10 @@ if ($_SESSION['level'] == 'admin' || $_SESSION['level'] == 'user' || $_SESSION['
     $loginRow = $getfromUsers->userLogin($logId);
     $countRow = $getfromUsers->userCount();
     $countDivisi = $getfromUsers->levelCount();
+    
 
-    $countRow_pengajuan = $getfromUsers->userCount();
+    $countRow_pengajuan = $getfromPendaftaran->pendaftaranCount();
+    $countRow_sidang = $getfromJadwal_sidang->sidangCount();
 } else {
     header('location:login');
 }

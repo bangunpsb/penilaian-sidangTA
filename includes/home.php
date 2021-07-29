@@ -19,7 +19,7 @@
                              <div class="col mr-2">
                                  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                      Pengajuan sidang</div>
-                                 <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $countRow; ?></div>
+                                 <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $countRow_pengajuan; ?></div>
                              </div>
                              <div class="col-auto">
                                  <i class="fas fa-envelope fa-2x text-gray-300"></i>
@@ -38,7 +38,7 @@
                          <div class="col mr-2">
                              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                  Jadwal sidang</div>
-                             <div class="h5 mb-0 font-weight-bold text-gray-800"> <?= $countDivisi; ?></div>
+                             <div class="h5 mb-0 font-weight-bold text-gray-800"> <?= $countRow_sidang; ?></div>
                          </div>
                          <div class="col-auto">
                              <i class="fas fa-envelope fa-2x text-gray-300"></i>

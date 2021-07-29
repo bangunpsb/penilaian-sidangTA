@@ -16,12 +16,14 @@ class users extends db
     }
 
     // Show data pengajuan skripsi
-    public function Show_Datapengajuan()
-    {
-        $query = "SELECT * FROM pendaftaran";
-        // $query = "SELECT * FROM pendaftaran where status_pendaftaran = 1 AND nim = '16101237'";
-        $stmt = $this->db->query($query);
-        return $stmt;
+    public function Show_Datapengajuan(){
+
+        $query = "SELECT * FROM pendaftaran where status_pendaftaran = 1 AND nim = '160123456789'";
+        // $stmt = $this->db->query($query);
+        // return $stmt;
+        // $query = "SELECT COUNT(kd_sidang) FROM jadwal_sidang";
+        $stmt = $this->db->prepare($query);       
+       return $stmt;
     }
 
     // Show Cetak users

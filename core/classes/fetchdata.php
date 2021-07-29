@@ -5,37 +5,31 @@ class fetchdata extends users
     public function Load_Datapengajuan()
     {
         $show_Datapengajuan = $this->show_Datapengajuan();
+        $show_Datapengajuan->execute();
         while ($R_pengajuan = $show_Datapengajuan->fetch(PDO::FETCH_ASSOC)) {
-?>
-            <tr>
-                <td><?= $R_pengajuan["nim"]; ?></td>
-                <td><?= $R_pengajuan["nama_depan"] . " " . $R_pengajuan["nama_belakang"]; ?></td>
-                <td><?= $R_pengajuan["judul_skripsi"]; ?></td>
-                <td><?= $R_pengajuan["status_judul"]; ?></td>
-                <td><?= $R_pengajuan["keterangan"]; ?></td>
-                <td>
-                    <!-- <p class="mt-3"><img src="assets/imgKwitansi/<?= $R_pengajuan['kwitansi']; ?>" alt="img-bukti-kwitansi" width="100px"></p> -->
-                    <p class="mt-3"><img src="assets/imgKwitansi/kwitansi.jpg" alt="img-bukti-kwitansi" width="100px"></p>
-                </td>
-                <td class="text-center">
-                    <a href="#" class="btn btn-primary btn-icon-split btn-sm mt-1 center-block d-block mx-auto">
-                        <i class="fas fa-eye"></i>
-                    </a>
-                    <a href="#" class="btn btn-success btn-icon-split btn-sm mt-1 center-block d-block mx-auto">
-                        <i class="fas fa-download"></i>
-                    </a>
-                </td>
-                <?php
-                // if (file_exists("assets/imgKwitansi/kwitansi.jpg")) {
-                //     echo "File tersedia";
-                // } else {
-                //     echo "File yang di cari tidak ada !";
-                // }
-                ?>
-            </tr>
-        <?php
-            $no++;
-        }
+            ?>
+                        <tr>
+                            <td><?= $R_pengajuan["nim"]; ?></td>
+                            <td><?= $R_pengajuan["nama_depan"] . " " . $R_pengajuan["nama_belakang"]; ?></td>
+                            <td><?= $R_pengajuan["judul_skripsi"]; ?></td>
+                            <td><?= $R_pengajuan["status_judul"]; ?></td>
+                            <td><?= $R_pengajuan["keterangan"]; ?></td>
+                            <td>                
+                                <p class="mt-3"><img src="assets/imgKwitansi/<?=$R_pengajuan['bukti_kwitansi']; ?>" alt="img-bukti-kwitansi" width="100px"></p>
+                            </td>
+                            <td class="text-center">
+                                <a href="#" class="btn btn-primary btn-icon-split btn-sm mt-1 center-block d-block mx-auto">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="#" class="btn btn-success btn-icon-split btn-sm mt-1 center-block d-block mx-auto">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php
+                        $no++;
+                    }
+      
     }
 
     public function Load_CetakDatakaryawan()
