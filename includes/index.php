@@ -6,6 +6,8 @@ if ($_SESSION['level'] == 'admin' || $_SESSION['level'] == 'user' || $_SESSION['
     $loginRow = $getfromUsers->userLogin($logId);
     $countRow = $getfromUsers->userCount();
     $countDivisi = $getfromUsers->levelCount();
+
+    $countRow_pengajuan = $getfromUsers->userCount();
 } else {
     header('location:login');
 }
@@ -45,13 +47,12 @@ if ($_SESSION['level'] == 'admin' || $_SESSION['level'] == 'user' || $_SESSION['
         <li id="menukaryawan_user" class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pegawai" aria-expanded="true" aria-controls="pegawai">
                 <i class="fas fa-fw fa-users text-gray-400"></i>
-                <span>Karyawan</span>
+                <span>Mahasiswa</span>
             </a>
             <div id="pegawai" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Karyawan:</h6>
-                    <a class="collapse-item" href="data_karyawan">Data Karyawan</a>
-                    <a class="collapse-item" href="gaji_karyawan">Gaji Karyawan</a>
+                    <a class="collapse-item" href="data_karyawan">Pengajuan Sidang</a>
                 </div>
             </div>
         </li>
@@ -70,10 +71,16 @@ if ($_SESSION['level'] == 'admin' || $_SESSION['level'] == 'user' || $_SESSION['
             </div>
         </li>
 
-        <li id="menukonfigurasi_user" class="nav-item">
+        <!-- <li id="menukonfigurasi_user" class="nav-item">
             <a class="nav-link" href="konfigurasi_app">
                 <i class="fas fa-fw fa-cog "></i>
                 <span>Konfigurasi Aplikasi</span></a>
+        </li> -->
+
+        <li id="ajukankaryawan_user" class="nav-item">
+            <a class="nav-link" href="pengajuan_sidang">
+                <i class="fas fa-envelope"></i>
+                <span>Ajukan Skripsi</span></a>
         </li>
 
         <!-- Nav Item - Tables -->
@@ -150,7 +157,7 @@ if ($_SESSION['level'] == 'admin' || $_SESSION['level'] == 'user' || $_SESSION['
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $loginRow['nama_depan']; ?></span>
+                            <span id="get_Nim" class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $loginRow['nim']; ?></span>
                             <img class="img-profile rounded-circle" src="assets/imgUsers/<?= $loginRow['img_users']; ?>">
                         </a>
                         <!-- Dropdown - User Information -->
@@ -192,7 +199,7 @@ if ($_SESSION['level'] == 'admin' || $_SESSION['level'] == 'user' || $_SESSION['
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
                     <span>
-                        Copyright &copy; Bangun Pasaribu
+                        Copyright &copy; Localhost
                         <script>
                             document.write(new Date().getFullYear());
                         </script>

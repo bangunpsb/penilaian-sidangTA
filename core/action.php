@@ -65,12 +65,15 @@ if (isset($_POST['update_nim'])) {
 
 
 
-
-
 // ACTION LOAD TABLE
 // page data_karyawan
 if (isset($_POST['Show_Datakaryawan'])) {
     $getfromFetchdata->Load_Datakaryawan();
+}
+
+// data pengajuan
+if (isset($_POST['Show_Datapengajuan'])) {
+    $getfromFetchdata->Load_Datapengajuan();
 }
 
 if (isset($_POST['Show_CetakDatakaryawan'])) {

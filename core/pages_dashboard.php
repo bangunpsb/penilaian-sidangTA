@@ -15,6 +15,8 @@ if ($_GET['page'] == "home") {
     require "includes/ubah_password.php";
 } else if ($_GET['page'] == "profile") {
     require "includes/profile.php";
+} else if ($_GET['page'] == "pengajuan_sidang") {
+    require "includes/pengajuan_sidang.php";
 } else if ($_GET['page'] == "lupa_password") {
     require "includes/lupaPassword.php";
 } else {

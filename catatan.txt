@@ -8,9 +8,16 @@ untuk diselesaikan
 -untuk upload skripsi untuk penilain mulai dari user ke admin baru ke dosen (ini cari rancangan nya seperti apa)
 -profile (nanti disitu bisa update profil)
 -password baru dari link reset ketika pertama kali bisa ketika kedua kali tidak bisa
+-ketika di klik update profile maka nama profil yg diatas kanan langsung berubah jd langsung load ajax gitu
+<<<<<<< HEAD
 -tambahi table jadwal sidang dan pendaftaran (sudah)
 -utk pendaftaran dari file daftar tambahi field nim nya (sudah)
 -untuk session nama ketika login ganti jadi select dari db agar ketika dia update profile maka otomatis nama nya juga terganti (sudah)
+=======
+-tambahi table jadwal sidang dan pendaftaran
+-utk pendaftaran dari file daftar tambahi field nim nya 
+-untuk session nama ketika login ganti jadi select dari db agar ketika dia update profile maka otomatis nama nya juga terganti
+>>>>>>> 9b309daad7ace78904c5c06824f46189b2c88721
 
 
 status_pendaftaran fungsinya untuk mengetahui sejauh mana pendaftaran itu

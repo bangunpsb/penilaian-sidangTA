@@ -42,12 +42,16 @@ if (akses_levelLogin == "user") {
     $('#menulaporan_user').hide();
     $('#menukonfigurasi_user').hide()
 } else if (akses_levelLogin == "dosen") {
+    $('#ajukankaryawan_user').hide()
     $('#menukaryawan_user').hide();        
     $('#menukonfigurasi_user').hide()
 }else if (akses_levelLogin == "admin"){
     $('#menukaryawan_user').show();    
     $('#menulaporan_user').show();    
     $('#menukonfigurasi_user').show();    
+    $('#ajukankaryawan_user').hide()
+    $('#jadwal_sidang').hide()
+    $('#menulaporan_user').hide();
 }
 
     
@@ -95,6 +99,21 @@ if (akses_levelLogin == "user") {
             },
             success: function (Show_Datakaryawan) {
                 $('#Show_Datakaryawan').html(Show_Datakaryawan);
+            }
+        });
+    }
+
+    // load page data_pengajuan
+    function Load_Datapengajuan() {
+        let Show_Datapengajuan = 'Show_Datapengajuan';              
+        $.ajax({
+            url: "core/init.php",
+            method: "POST",
+            data: {
+                "Show_Datapengajuan": Show_Datapengajuan                
+            },
+            success: function (Show_Datapengajuan) {
+                $('#Show_Datapengajuan').html(Show_Datapengajuan);
             }
         });
     }
@@ -275,6 +294,7 @@ $('.updateProfile').click(function () {
     let update_namaBelakang=$('#update_namaBelakang').val();                                
     let update_noHp=$('#update_noHp').val();                                        
     
+        let fd = new FormData();
         fd.append("update_nim", update_nim);
         fd.append("update_namaDepan", update_namaDepan);            
         fd.append("update_namaBelakang", update_namaBelakang);                    
@@ -300,10 +320,10 @@ $('.updateProfile').click(function () {
                         icon: "error",
                     });                              
                     // return false;                                                                
-                }        
+                } 
+            }       
         });        
                             
-
 });
 
 
