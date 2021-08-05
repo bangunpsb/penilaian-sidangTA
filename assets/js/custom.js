@@ -133,6 +133,55 @@ if (akses_levelLogin == "user") {
             });
         }
 
+// ajukan skripsi
+$('#ajukan_skripsi').click(function () {
+    let nim_ajukan= $('#nim_ajukan').val();
+    let namaLengkap_ajukan = $('#namaLengkap_ajukan').val();
+    let judulSkripsi_ajukan = $('#judulSkripsi_ajukan').val();
+    // ubah semua nilai ke form data
+    let files = $("#imgKwitansi")[0].files[0];
+    let fd = new FormData();
+    fd.append("nim_ajukan", nim_ajukan);
+    fd.append("namaLengkap_ajukan", namaLengkap_ajukan);
+    fd.append("judulSkripsi_ajukan", judulSkripsi_ajukan);
+    fd.append("imgDKwitansi", files);
+
+    // console.log(fd);
+    $.ajax({
+        type: 'post',
+        url: 'core/init.php',
+        data: fd,
+        cache: false,
+        contentType: false,
+        processData: false,
+        // success: function (data) {                                                                   
+        //     if (data == 0) {
+        //         $('#messageLogin').addClass('messageActive');
+        //         let dataMsg = 'Belum Verifikasi Email';
+        //         deleteMessage();
+        //         msgLogin(dataMsg);
+        //     }else if (data == 1) {
+        //         $('#messageLogin').addClass('messageActive');
+        //         let dataMsg = 'Anda Sudah Melakukan Login';
+        //         deleteMessage();
+        //         msgLogin(dataMsg);
+        //     }else if(data == 2) {                    
+        //         window.location.href = 'http://localhost/github/penilaian-sidangTA/home';                    
+        //     }else if(data == 3){
+        //         $('#messageLogin').addClass('messageActive');
+        //         let dataMsg = 'Email / Password tidak ada';
+        //         deleteMessage();
+        //         msgLogin(dataMsg);
+        //     }else{
+        //         $('#messageLogin').addClass('messageActive');
+        //         let dataMsg = 'Data tidak ditemukan';
+        //         deleteMessage();
+        //         msgLogin(dataMsg);
+        //     }             
+        // }
+    });
+});
+
 
     // action login    
     $('.loginUser').click(function () {

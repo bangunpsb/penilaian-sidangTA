@@ -64,6 +64,17 @@ if (isset($_POST['update_nim'])) {
 }
 
 
+// ajukan skripsi
+if (isset($_POST['nim_ajukan'])) {
+    $nim_ajukan = $_POST['nim_ajukan'];
+    $namaLengkap_ajukan = $_POST['namaLengkap_ajukan'];
+    $judulSkripsi_ajukan = $_POST['judulSkripsi_ajukan'];
+    $imgKwitansi = $_FILES['imgKwitansi']['name'];
+    $lokasi_imgKwitansi = $_FILES['imgKwitansi']['tmp_name'];
+    $set = $getfromUsers->ajukanSidang($nim_ajukan,$namaLengkap_ajukan,$judulSkripsi_ajukan,$imgKwitansi,$lokasi_imgKwitansi);
+}
+
+
 
 // ACTION LOAD TABLE
 // page data_karyawan
@@ -73,6 +84,10 @@ if (isset($_POST['Show_Datakaryawan'])) {
 
 // data pengajuan
 if (isset($_POST['Show_Datapengajuan'])) {
+    // $get_Nim=$_POST['get_Nim'];
+    // print_r($nim_Datapengajuan);
+    // exit();
+
     $getfromFetchdata->Load_Datapengajuan();
 }
 

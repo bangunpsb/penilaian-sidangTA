@@ -55,28 +55,28 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form>
+                <form class="user" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Nim</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <input type="text" class="form-control" id="nim_ajukan" value="<?= $loginRow['nim']; ?>" readonly>
                     </div>
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Nama</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <input type="text" class="form-control" id="namaLengkap_ajukan" value="<?= $loginRow['nama_depan']." ".$loginRow['nama_belakang']; ?>" readonly>
                     </div>
                     <div class="form-group">
                         <label for="message-text" class="col-form-label">Judul Skripsi</label>
-                        <textarea class="form-control" id="message-text"></textarea>
+                        <textarea class="form-control" id="judulSkripsi_ajukan" autofocus></textarea>
                     </div>
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Upload Kwitansi</label>
-                        <input type="file" id="imgDaftar" class="form-control form-control-lg" required>
+                        <input type="file" id="imgKwitansi" class="form-control form-control-lg" required>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
-                <button type="button" class="btn btn-success">Ajukan</button>
+                <button id="ajukan_skripsi" type="button" class="btn btn-success">Ajukan</button>
             </div>
         </div>
     </div>
